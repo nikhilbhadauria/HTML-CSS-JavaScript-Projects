@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1.000) 0.000%, rgba(0, 6, 10, 1.000) 16.667%, rgba(0, 41, 19, 1.000) 33.333%, rgba(0, 28, 6, 1.000) 50.000%, rgba(0, 0, 0, 1.000) 66.667%, rgba(0, 0, 0, 1.000) 83.333%, rgba(0, 0, 0, 1.000) 100.000%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.card {
+    position: relative;
+    width: 30rem;
+    height: 35rem;
+    background-color: black;
+    box-shadow: 0px 30px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.content {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height: 5px;
+    background: #001C0F;
+    left: 10%;
+    text-align: center;
+    transition: 0.5s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+h3 {
+    font-size: 30px;
+    text-transform: uppercase;
+    margin: 25px;
+    color: #fff;
+}
+
+p {
+    width: 80%;
+    margin: 10px auto;
+    font-size: 18px;
+    transition: opacity 0.5s ease-out; 
+    opacity: 0;
+    line-height: 25px;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    background-color: black;
+    color: #fff;
+    padding: 10px 15px;
+    display: inline-block;
+    margin-top: 10px;
+    transition: opacity 0.5s ease-out, background-color 0.5s ease, color 0.5s ease;
+    opacity: 0;
+    line-height: 25px;
+    color: #fff;
+    border-radius: 1rem;
+}
+
+a:hover{
+    background: white;
+    color: black;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease, transform 0.5s ease; 
+}
+
+.card:hover .content {
+    height: 100%;
+    width: 100%;
+    left: 0;
+}
+
+.card:hover p,
+.card:hover a {
+    opacity: 1;
+    transition: opacity 0.5s ease-out, background-color 0.5s ease, color 0.5s ease;
+}
+
+.img-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 1s ease;
+}
+
+.card:hover img {
+    opacity: 0;
+    transform: scale(1.1); 
+}

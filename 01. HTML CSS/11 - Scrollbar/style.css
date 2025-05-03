@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+.scroll-container {
+    background: #0e0e0e;
+    width: 25rem;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-div {
+    width: 100%;
+    height: 500px;
+    background: #0e0e0e;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.scroll-div::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-div::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border-radius: 10px;
+}
+
+.scroll-div::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.scroll-div::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+.scroll-object {
+    padding: 10px 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}

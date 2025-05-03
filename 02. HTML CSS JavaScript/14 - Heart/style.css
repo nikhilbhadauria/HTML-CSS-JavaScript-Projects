@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gray: #e0e0e0;
+    --main-color: #ff3c6d;
+    --shadow-color: rgba(255, 60, 109, 0.4);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #1c1c2b, #000);
+    perspective: 1000px;
+}
+
+.heart-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.heart-container:active {
+    transform: scale(0.95);
+}
+
+.heart {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: rotate(-45deg);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    transition: inherit;
+}
+
+.gray-heart {
+    background: var(--gray);
+    z-index: 1;
+}
+
+.gray-heart::before {
+    background: var(--gray);
+    top: -50%;
+    left: 0;
+}
+
+.gray-heart::after {
+    background: var(--gray);
+    left: 50%;
+    top: 0;
+}
+
+.red-heart {
+    background: var(--main-color);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 2;
+    transform: rotate(-45deg) scale(0.5);
+}
+
+.red-heart::before,
+.red-heart::after {
+    background: var(--main-color);
+}
+
+.red-heart::before {
+    top: -50%;
+    left: 0;
+}
+
+.red-heart::after {
+    left: 50%;
+    top: 0;
+}
+
+@keyframes heartPop {
+    0% { transform: rotate(-45deg) scale(0.5); opacity: 0; }
+    50% { transform: rotate(-45deg) scale(1.2); box-shadow: 0 0 30px var(--shadow-color); }
+    100% { transform: rotate(-45deg) scale(1); opacity: 1; box-shadow: 0 0 15px var(--shadow-color); }
+}
+
+@keyframes heartShrink {
+    0% { transform: rotate(-45deg) scale(1); opacity: 1; }
+    100% { transform: rotate(-45deg) scale(0); opacity: 0; }
+}
+
+@keyframes grayRevive {
+    0% { transform: rotate(-45deg) scale(0.8); opacity: 0; }
+    60% { transform: rotate(-45deg) scale(1.1); }
+    100% { transform: rotate(-45deg) scale(1); opacity: 1; }
+}
+
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+
+.heart-container:hover .gray-heart {
+    transform: rotate(-45deg) scale(1.05);
+    filter: brightness(1.1);
+}
+
+.heart-container:hover .red-heart {
+    box-shadow: 0 0 20px var(--shadow-color);
+}

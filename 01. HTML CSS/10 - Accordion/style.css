@@ -1,0 +1,97 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+#accordion {
+    width: min(90%, 650px);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#accordion li {
+    list-style: none;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#accordion li:last-child {
+    margin-bottom: 0;
+}
+
+#accordion li label {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4a4a4a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#accordion li label:hover {
+    background: rgba(245, 245, 245, 0.9);
+}
+
+#accordion li label span {
+    font-size: 1.5rem;
+    color: #667eea;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#accordion label + input[type="radio"] {
+    display: none;
+}
+
+#accordion .content {
+    padding: 0 20px;
+    line-height: 1.7;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    color: #5a5a5a;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+#accordion label + input[type="radio"]:checked + .content {
+    max-height: 500px;
+    opacity: 1;
+    padding: 0 20px 25px 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+#accordion input[type="radio"]:checked ~ label {
+    background: rgba(245, 245, 245, 0.95);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+#accordion li:has(input[type="radio"]:checked) {
+    animation: pulse 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}

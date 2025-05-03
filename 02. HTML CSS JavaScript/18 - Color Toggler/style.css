@@ -1,0 +1,87 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111;
+    --toggle-bg: rgba(0, 0, 0, 0.1);
+    --ball-color: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode {
+    --bg-color: #0f0f0f;
+    --text-color: #f5f5f5;
+    --toggle-bg: rgba(255, 255, 255, 0.2);
+    --ball-color: #000;
+    --shadow-color: rgba(255, 255, 255, 0.2);
+}
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+.container {
+    text-align: center;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    transition: all 0.5s ease;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+#switch {
+    display: none;
+}
+
+.toggler {
+    width: 100px;
+    height: 40px;
+    background: var(--toggle-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 50px;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: inset 0 0 10px var(--shadow-color);
+}
+
+.toggler .icon {
+    font-size: 20px;
+    z-index: 1;
+}
+
+.ball {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: var(--ball-color);
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+}
+
+#switch:checked + .toggler .ball {
+    transform: translateX(60px);
+}

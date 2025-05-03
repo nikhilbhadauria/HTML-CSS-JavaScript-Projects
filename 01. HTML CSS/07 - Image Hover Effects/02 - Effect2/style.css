@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background: conic-gradient(from 45deg, rgba(197, 187, 184, 1.000) 0.000deg, rgba(197, 187, 184, 1.000) 27.692deg, rgba(181, 180, 184, 1.000) 27.692deg, rgba(181, 180, 184, 1.000) 55.385deg, rgba(164, 173, 182, 1.000) 55.385deg, rgba(164, 173, 182, 1.000) 83.077deg, rgba(146, 164, 180, 1.000) 83.077deg, rgba(146, 164, 180, 1.000) 110.769deg, rgba(130, 155, 176, 1.000) 110.769deg, rgba(130, 155, 176, 1.000) 138.462deg, rgba(114, 145, 172, 1.000) 138.462deg, rgba(114, 145, 172, 1.000) 166.154deg, rgba(101, 135, 166, 1.000) 166.154deg, rgba(101, 135, 166, 1.000) 193.846deg, rgba(91, 124, 160, 1.000) 193.846deg, rgba(91, 124, 160, 1.000) 221.538deg, rgba(83, 114, 153, 1.000) 221.538deg, rgba(83, 114, 153, 1.000) 249.231deg, rgba(80, 103, 145, 1.000) 249.231deg, rgba(80, 103, 145, 1.000) 276.923deg, rgba(80, 93, 136, 1.000) 276.923deg, rgba(80, 93, 136, 1.000) 304.615deg, rgba(83, 84, 126, 1.000) 304.615deg, rgba(83, 84, 126, 1.000) 332.308deg, rgba(91, 75, 116, 1.000) 332.308deg 360.000deg)
+}
+
+.container {
+    width: 30rem;
+    height: 30rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
+}
+
+.container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-out; 
+}
+
+.content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: rgba(23, 23, 23, 0.8); 
+    transition: transform 0.5s ease-out; 
+    text-align: center;
+    transform: translateY(100%); 
+}
+
+.container:hover .content {
+    transform: translateY(0); 
+}
+
+.container:hover img {
+    transform: translateY(-25%); 
+}
+
+.content h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-family: sans-serif
+}
+
+.content h4 {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 80%;
+    font-family: sans-serif;
+}

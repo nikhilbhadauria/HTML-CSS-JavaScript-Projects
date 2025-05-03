@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --transition-duration: 0.5s;
+    --container-width: 800px;
+    --container-height: 500px;
+    --bg-color: #1a1a1a;
+    --overlay: rgba(0, 0, 0, 0.4);
+}
+
+body {
+    min-height: 100vh;
+    background-image: linear-gradient(90.2deg, rgba(1,47,95,1) -0.4%, rgba(56,141,217,1) 106.1%);
+    display: grid;
+    place-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    position: relative;
+    width: var(--container-width);
+    height: var(--container-height);
+    background: var(--bg-color);
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.clip {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: clip-path var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: clip-path;
+}
+
+.clip1 {
+    background-image: linear-gradient(var(--overlay), var(--overlay)), 
+    url('https://images.unsplash.com/photo-1430414734948-17ebbe665afa?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    clip-path: polygon(0 0, 50% 0, 30% 100%, 0% 100%);
+    z-index: 1;
+}
+
+.clip2 {
+    background-image: linear-gradient(var(--overlay), var(--overlay)), 
+    url('https://images.unsplash.com/photo-1694687202364-789d2cfb5567?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    clip-path: polygon(40% 0, 90% 0, 70% 100%, 20% 100%);
+    z-index: 2;
+}
+
+.clip3 {
+    background-image: linear-gradient(var(--overlay), var(--overlay)), 
+    url('https://images.unsplash.com/photo-1614586125858-e695dd97d1b6?q=80&w=2103&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    clip-path: polygon(80% 0, 100% 0, 100% 100%, 60% 100%);
+    z-index: 3;
+}
+
+.container:hover .clip {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    z-index: 0;
+}
+
+.container .clip:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    z-index: 10;
+}

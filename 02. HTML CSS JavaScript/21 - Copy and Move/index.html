@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Text Transformer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="app-container">
+        <h1 class="app-title">Text Transformer</h1>
+        <p class="app-subtitle">Copy, move, and transform your text with ease</p>
+        <div class="card source-card">
+        <div class="card-header">
+        <i class="fas fa-pencil-alt icon"></i>
+        <h2>Source Text</h2>
+    </div>
+    <textarea class="text-input" name="copyTxt" placeholder="Enter your text here...">Hello World!</textarea>
+    <div class="btn-group">
+        <button class="btn copy-btn">
+        <i class="fas fa-copy"></i> Copy to Clipboard
+        </button>
+        <button class="btn move-btn">
+        <i class="fas fa-arrow-right"></i> Move to Output
+        </button>
+    </div>
+    </div>
+    <div class="card output-card">
+    <div class="card-header">
+        <i class="fas fa-clipboard icon"></i>
+        <h2>Output Text</h2>
+    </div>
+    <textarea class="text-input" name="finalTxt" placeholder="Your transformed text will appear here..." readonly></textarea>
+    <div class="notification" id="notification"></div>
+    </div>
+    <div class="transform-options">
+    <h3>Quick Transformations:</h3>
+    <div class="option-btns">
+        <button class="option-btn" data-action="uppercase">
+        <i class="fas fa-text-height"></i> UPPERCASE
+        </button>
+        <button class="option-btn" data-action="lowercase">
+        <i class="fas fa-text-width"></i> lowercase
+        </button>
+        <button class="option-btn" data-action="capitalize">
+        <i class="fas fa-paragraph"></i> Capitalize Words
+        </button>
+        <button class="option-btn danger-btn" id="clearBtn">
+        <i class="fas fa-trash"></i> Clear All
+        </button>
+    </div>
+    </div>
+    </div>
+
+<script src="app.js"></script>
+</body>
+</html>

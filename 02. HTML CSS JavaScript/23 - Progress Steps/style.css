@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #00b4db;
+    --secondary: #8f94fb;
+    --bg: #1e1e2f;
+    --inactive: #444;
+    --text: #f0f0f0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+}
+
+.container {
+    background: rgba(30, 30, 47, 0.6);
+    padding: 40px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.progress-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.progress-container::before {
+    content: "";
+    background: #2a2a40;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    transform: translateY(-50%);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.progress {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 5px;
+    background: linear-gradient(to right, #00f2fe, #4facfe);
+    border-radius: 20px;
+    transform: translateY(-50%);
+    width: 0%;
+    z-index: -1;
+}
+
+.circle {
+    background: #2f2f44;
+    color: var(--text);
+    border: 3px solid var(--inactive);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.circle.active {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    background: #00c6ff;
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    font-size: 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
